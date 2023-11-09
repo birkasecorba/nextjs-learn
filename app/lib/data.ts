@@ -21,7 +21,7 @@ export async function fetchRevenue() {
     // Don't do this in real life :)
 
     console.log("Fetching revenue data...");
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 6000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
@@ -67,7 +67,7 @@ export async function fetchCardData() {
          SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "paid",
          SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
          FROM invoices`;
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 6000));
     const data = await Promise.all([
       invoiceCountPromise,
       customerCountPromise,
